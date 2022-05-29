@@ -8,7 +8,7 @@ import (
 
 
 func main() {
-    fmt.Println("Testing Golang Redis")
+    fmt.Println("Testing Golang Redis-produsen")
 
     client := redis.NewClient(&redis.Options{
         Addr: "localhost:6379",
@@ -21,9 +21,9 @@ func main() {
 
 	i := 0
 	for {
-		name := client.Set("nama", "ramma" + strconv.Itoa(i) , 0).Err()
-		if name != nil{
-			fmt.Println(name)
+		err := client.Set("nama", "ramma" + "  " + strconv.Itoa(i) , 0).Err()
+		if err != nil{
+			fmt.Println(err)
 		}
 		i += 1
 	}
